@@ -13,9 +13,12 @@ var Enemy = function() {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
+    var xStep = 90
+    this.x += xStep * dt
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    console.log(dt);
 };
 
 // Draw the enemy on the screen, required method for game
@@ -53,14 +56,16 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(move) {
+    var xStep = 100
+    var yStep = 85
     if (move === 'right') {
-      this.x = this.x + 100;
+      this.x += xStep;
     } else if (move === 'up') {
-      this.y -= 85;
+      this.y -= yStep;
     } else if (move === 'left') {
-      this.x -= 100;
+      this.x -= xStep;
     } else if (move === 'down') {
-      this.y += 85;
+      this.y += yStep;
     }
     if (this.x<0) {
       this.x = 0;
